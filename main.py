@@ -4,7 +4,8 @@ from analisador.estatisticas import (
     contar_palavras,
     encontrar_maior_palavra,
     contar_caracteres,
-    contar_caracteres_sem_espacos
+    contar_caracteres_sem_espacos,
+    calcular_media_tamanho_palavras
 )
 from analisador.frequencia import contar_ocorrencias
 
@@ -31,6 +32,10 @@ total_ocorrencias = contar_ocorrencias(
 total_caracteres = contar_caracteres(texto_analisado)
 
 total_caracteres_sem_espacos = contar_caracteres_sem_espacos(
+    texto_analisado
+)
+
+media_tamanho_palavras = calcular_media_tamanho_palavras(
     texto_analisado
 )
 
@@ -71,4 +76,9 @@ print(f"O texto tem {total_caracteres} caracteres, incluindo espaços.")
 print(
     f"O texto tem {total_caracteres_sem_espacos} caracteres "
     "sem contar os espaços."
+)
+
+print(
+    f"O tamanho médio das palavras é de "
+    f"{media_tamanho_palavras} letras."
 )

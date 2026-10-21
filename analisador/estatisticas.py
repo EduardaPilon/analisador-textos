@@ -83,3 +83,21 @@ def contar_caracteres_sem_espacos(texto):
 
     return total_caracteres
 
+def calcular_media_tamanho_palavras(texto):
+    lista_palavras = texto.split()
+    total_letras = 0
+    total_palavras_validas = 0
+
+    for palavra_atual in lista_palavras:
+        palavra_atual = preparar_palavra(palavra_atual)
+
+        if palavra_atual:
+            total_letras += len(palavra_atual)
+            total_palavras_validas += 1
+
+    if total_palavras_validas == 0:
+        return 0
+
+    media_tamanho = total_letras / total_palavras_validas
+
+    return round(media_tamanho, 2)
