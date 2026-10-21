@@ -1,9 +1,4 @@
-
-from analisador.texto import remover_acentos
-
-
-
-from analisador.texto import remover_acentos
+from analisador.texto import remover_acentos, preparar_palavra
 
 
 def contar_vogais_consoantes(texto):
@@ -50,7 +45,7 @@ def encontrar_maior_palavra(texto):
     tamanho_maior_palavra = 0
 
     for palavra_atual in texto.split():
-        palavra_atual = palavra_atual.lower().strip(".,!?;:")
+        palavra_atual = preparar_palavra(palavra_atual)
 
         if len(palavra_atual) > tamanho_maior_palavra:
             maior_palavra = palavra_atual
