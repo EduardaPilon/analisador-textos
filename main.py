@@ -2,7 +2,9 @@
 from analisador.estatisticas import (
     contar_vogais_consoantes,
     contar_palavras,
-    encontrar_maior_palavra
+    encontrar_maior_palavra,
+    contar_caracteres,
+    contar_caracteres_sem_espacos
 )
 from analisador.frequencia import contar_ocorrencias
 
@@ -26,6 +28,24 @@ total_ocorrencias = contar_ocorrencias(
     texto_analisado,
     palavra_buscada
 )
+total_caracteres = contar_caracteres(texto_analisado)
+
+total_caracteres_sem_espacos = contar_caracteres_sem_espacos(
+    texto_analisado
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 print(
     f"O texto tem {estatisticas_letras['total_consoantes']} consoantes "
@@ -44,4 +64,11 @@ print(
 print(
     f"A palavra {palavra_buscada} aparece "
     f"{total_ocorrencias} vez(es) no texto."
+)
+
+print(f"O texto tem {total_caracteres} caracteres, incluindo espaços.")
+
+print(
+    f"O texto tem {total_caracteres_sem_espacos} caracteres "
+    "sem contar os espaços."
 )

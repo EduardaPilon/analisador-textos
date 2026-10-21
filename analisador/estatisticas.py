@@ -71,3 +71,15 @@ def encontrar_maior_palavra(texto):
             maior_quant = len(palavra)
 
     return maior_palavra, maior_quant
+
+def contar_caracteres(texto):
+    total_caracteres = len(texto)
+    return total_caracteres
+
+
+def contar_caracteres_sem_espacos(texto):
+    texto_sem_espacos = texto.replace(" ", "")
+    total_caracteres = len(texto_sem_espacos)
+
+    return total_caracteres
+
