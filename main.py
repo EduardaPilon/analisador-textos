@@ -7,33 +7,41 @@ from analisador.estatisticas import (
 from analisador.frequencia import contar_ocorrencias
 
 
-texto = """
+texto_analisado = """
 Python é uma linguagem de programação de alto nível conhecida por sua sintaxe simples, legível e produtiva. Criada com foco na clareza do código, ela é amplamente utilizada no desenvolvimento web, automação de tarefas, análise de dados, inteligência artificial, machine learning e computação científica. Seu vasto ecossistema de bibliotecas, como NumPy, Pandas, TensorFlow e PyTorch aliado à grande comunidade de desenvolvedores, faz do Python uma das linguagens mais populares e versáteis do mundo, sendo uma excelente escolha tanto para iniciantes quanto para projetos profissionais de alta complexidade.
 """
 
-palavra_escolhida = input(
+palavra_buscada = input(
     "Escreva uma palavra para saber quantas vezes ela aparece no texto: "
 )
 
-resultado = contar_vogais_consoantes(texto)
-total_palavras = contar_palavras(texto)
-maior_palavra, maior_quant = encontrar_maior_palavra(texto)
-quantidade_palavra = contar_ocorrencias(texto, palavra_escolhida)
+estatisticas_letras = contar_vogais_consoantes(texto_analisado)
+total_palavras = contar_palavras(texto_analisado)
 
-print(
-    f"O texto tem {resultado['consoantes']} consoantes "
-    f"e {resultado['vogais']} vogais.\n"
+maior_palavra, tamanho_maior_palavra = encontrar_maior_palavra(
+    texto_analisado
 )
 
-for vogal, quantidade in resultado['contagem_vogais'].items():
+total_ocorrencias = contar_ocorrencias(
+    texto_analisado,
+    palavra_buscada
+)
+
+print(
+    f"O texto tem {estatisticas_letras['total_consoantes']} consoantes "
+    f"e {estatisticas_letras['total_vogais']} vogais.\n"
+)
+
+for vogal, quantidade in estatisticas_letras['frequencia_vogais'].items():
     print(f"Letra {vogal}: {quantidade}")
 
 print(
     f"O texto tem {total_palavras} palavras. "
-    f"A maior palavra é {maior_palavra}, com {maior_quant} letras."
+    f"A maior palavra é {maior_palavra}, "
+    f"com {tamanho_maior_palavra} letras."
 )
 
 print(
-    f"A palavra {palavra_escolhida} aparece "
-    f"{quantidade_palavra} vez(es) no texto."
+    f"A palavra {palavra_buscada} aparece "
+    f"{total_ocorrencias} vez(es) no texto."
 )

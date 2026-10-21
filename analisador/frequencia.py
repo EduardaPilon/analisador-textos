@@ -1,11 +1,11 @@
+def contar_ocorrencias(texto, palavra_buscada):
+    total_ocorrencias = 0
 
-def contar_ocorrencias(texto, palavra_escolhida):
-    quantidade = 0
+    for palavra_atual in texto.split():
+        palavra_atual = palavra_atual.lower().strip(".,!?;:")
 
-    for palavra in texto.split():
-        palavra = palavra.lower().strip(".,!?;:")
+        if palavra_atual == palavra_buscada.lower():
+            total_ocorrencias += 1
 
-        if palavra == palavra_escolhida.lower():
-            quantidade += 1
+    return total_ocorrencias
 
-    return quantidade
